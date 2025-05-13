@@ -1,14 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/Logo.png";
 
 function Header() {
 	return (
-		<div className="flex">
-			<img src={logo} alt="logo" />
-			<div>
-				<a>Home</a>
-				<a>Catalog</a>
+		<div className="flex py-6 px-16 gap-112 border-b-2 bg-inputs border-badges items-center">
+			<Link to="Homepage">
+				<div className="flex items-center">
+					<p className="text-main font-extrabold text-xl max-h-6 ">
+						Travel
+						<span className="text-text">Trucks</span>
+					</p>
+				</div>
+			</Link>
+
+			<div className="flex gap-8 font-medium items-center">
+				<Link to="/Homepage">Home</Link>
+				<Link to="/Catalog">Catalog</Link>
 			</div>
 		</div>
 	);
