@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Homepage() {
 	return (
-		<div className="h-[calc(100vh-74px)] flex items-center relative">
+		<div className="h-[calc(100vh-73px)] flex items-center relative">
 			<div
 				className="absolute inset-0 bg-cover bg-center"
 				style={{
@@ -12,6 +12,8 @@ function Homepage() {
 					transform: "scaleX(-1)",
 				}}
 			></div>
+
+			<div className="absolute inset-0 bg-black opacity-[0.2]"></div>
 
 			<div className="flex flex-col gap-10 relative z-10 text-inputs px-16 py-6 items-start">
 				<div className="flex flex-col gap-4">

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Header() {
 	return (
-		<div className="flex py-6 px-16 gap-112 border-b-2 bg-inputs border-badges items-center">
+		<div className="flex py-6 px-16 xl:gap-140 gap-112 border-b-2 bg-inputs border-badges items-center">
 			<Link to="Homepage">
 				<div className="flex items-center">
 					<p className="text-main font-extrabold text-xl max-h-6 ">
