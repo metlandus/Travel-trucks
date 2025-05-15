@@ -3,7 +3,7 @@ import svg from "../assets/icomoon/symbol-defs.svg";
 
 const VehicleType = () => {
 	return (
-		<div className="flex flex-col gap-6">
+		<div className="flex flex-col gap-6 mb-5">
 			<h2 className="text-main font-semibold text-xl border-b-1 border-b-gray-light pb-6">
 				Vehicle Type
 			</h2>

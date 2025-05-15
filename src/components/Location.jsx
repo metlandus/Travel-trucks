@@ -5,7 +5,7 @@ function Location() {
 	const locations = ["Turkey", "USA", "France", "UAE"];
 
 	return (
-		<div className="flex flex-col text-main gap-2 my-10">
+		<div className="flex flex-col text-main gap-2 mb-10">
 			<label htmlFor="location" className="text-gray">
 				Location
 			</label>

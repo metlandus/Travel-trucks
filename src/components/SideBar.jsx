@@ -11,6 +11,9 @@ function SideBar() {
 				<p className="text-text font-medium">Filters</p>
 				<Equipment />
 				<VehicleType />
+				<button className="bg-button hover:bg-button-hover text-white rounded-full px-15 py-4 self-start">
+					Search
+				</button>
 			</div>
 		</div>
 	);

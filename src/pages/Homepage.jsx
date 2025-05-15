@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function Homepage() {
 	return (
-		<div className="h-[calc(100vh-73px)] flex items-center relative">
+		<div className="h-[calc(100vh-74px)] flex items-center relative">
 			<div
 				className="absolute inset-0 bg-cover bg-center"
 				style={{
