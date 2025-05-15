@@ -7,9 +7,11 @@ function SideBar() {
 	return (
 		<div className="px-16">
 			<Location />
-			<p className="text-text font-medium">Filters</p>
-			<Equipment />
-			<VehicleType />
+			<div className="flex flex-col gap-8">
+				<p className="text-text font-medium">Filters</p>
+				<Equipment />
+				<VehicleType />
+			</div>
 		</div>
 	);
 }

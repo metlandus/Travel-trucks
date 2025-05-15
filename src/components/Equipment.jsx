@@ -33,7 +33,7 @@ const Equipment = () => {
 					<p className="font-medium text-main">TV</p>
 				</div>
 				<div className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]">
-					<svg width={32} height={32}>
+					<svg width={32} height={32} className="stroke-0">
 						<use href={`${svg}#icon-radio`} />
 					</svg>
 					<p className="font-medium text-main">Radio</p>
