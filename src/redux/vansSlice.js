@@ -1,7 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// Async thunk for fetching vans
 export const fetchVans = createAsyncThunk("vans/fetchVans", async () => {
 	const response = await axios.get(
 		"https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers"
