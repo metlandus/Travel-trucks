@@ -20,8 +20,10 @@ const Vans = () => {
 							vanName={van.name}
 							rating={van.rating}
 							location={van.location}
-                            img={van.gallery[0].thumb}
-                            price={van.price}
+							img={van.gallery[0].thumb}
+							price={van.price}
+							reviewCount={van.reviews.length}
+							desc={van.description}
 						/>
 					</li>
 				))}
