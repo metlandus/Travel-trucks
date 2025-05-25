@@ -1,4 +1,3 @@
-import React from "react";
 import svg from "../assets/icomoon/symbol-defs.svg";
 
 const Equipment = () => {
@@ -10,25 +9,25 @@ const Equipment = () => {
 			<div className="flex flex-wrap gap-2">
 				<div className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]">
 					<svg width={32} height={32}>
-						<use href={`${svg}#icon-wind`} />
+						<use href={`${svg}#icon-AC`} />
 					</svg>
 					<p className="font-medium text-main">AC</p>
 				</div>
 				<div className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]">
 					<svg width={32} height={32}>
-						<use href={`${svg}#icon-diagram`} />
+						<use href={`${svg}#icon-transmission`} />
 					</svg>
 					<p className="font-medium text-main">Automatic</p>
 				</div>
 				<div className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]">
 					<svg width={32} height={32}>
-						<use href={`${svg}#icon-cup-hot`} />
+						<use href={`${svg}#icon-kitchen`} />
 					</svg>
 					<p className="font-medium text-main">Kitchen</p>
 				</div>
 				<div className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]">
 					<svg width={32} height={32}>
-						<use href={`${svg}#icon-tv`} />
+						<use href={`${svg}#icon-TV`} />
 					</svg>
 					<p className="font-medium text-main">TV</p>
 				</div>
@@ -40,7 +39,7 @@ const Equipment = () => {
 				</div>
 				<div className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]">
 					<svg width={32} height={32}>
-						<use href={`${svg}#icon-fridge`} />
+						<use href={`${svg}#icon-regrigerator`} />
 					</svg>
 					<p className="font-medium text-main">Refrigerator</p>
 				</div>
@@ -50,7 +49,7 @@ const Equipment = () => {
 						height={32}
 						className="text-black fill-none"
 					>
-						<use href={`${svg}#icon-gas-stove`} />
+						<use href={`${svg}#icon-gas`} />
 					</svg>
 					<p className="font-medium text-main">Gas</p>
 				</div>
@@ -66,9 +65,9 @@ const Equipment = () => {
 				</div>
 				<div className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]">
 					<svg width={32} height={32}>
-						<use href={`${svg}#icon-petrol`} />
+						<use href={`${svg}#icon-engine`} />
 					</svg>
-					<p className="font-medium text-main">Petrol</p>
+					<p className="font-medium text-main">engine</p>
 				</div>
 				<div className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]">
 					<svg
@@ -79,6 +78,12 @@ const Equipment = () => {
 						<use href={`${svg}#icon-microwave`} />
 					</svg>
 					<p className="font-medium text-main">Microwave</p>
+				</div>
+				<div className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]">
+					<svg width={32} height={32} className="text-black">
+						<use href={`${svg}#icon-bathroom`} />
+					</svg>
+					<p className="font-medium text-main">Bathroom</p>
 				</div>
 			</div>
 		</div>

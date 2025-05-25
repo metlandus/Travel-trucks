@@ -8,7 +8,7 @@ function Catalog() {
 			<div className="flex-1/3">
 				<SideBar />
 			</div>
-			<div className="flex-2/3">
+			<div className="flex-2/3 pr-16">
 				<Vans />
 			</div>
 		</div>
