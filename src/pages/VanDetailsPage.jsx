@@ -22,7 +22,7 @@ function VanDetailsPage() {
 	}
 	console.log(van);
 	return (
-		<div className="px-16 pt-12">
+		<div className="flex flex-col px-16 pt-12 gap-7">
 			<div className="flex flex-col gap-2">
 				<p className="text-main font-semibold text-2xl">{van.name}</p>
 				<div className="flex gap-4">
@@ -45,14 +45,21 @@ function VanDetailsPage() {
 					€{van.price}.00
 				</p>
 			</div>
-			<div className="flex justify-between">
-				{van.gallery.map((image) => (
-					<img
-						src={image.original}
-						className="rounded-lg"
-					></img>
+			<div className="flex  justify-between">
+				{van.gallery.map((image, index) => (
+					<div
+						key={index}
+						className="max-w-100 h-70 rounded-xl overflow-hidden"
+					>
+						<img
+							src={image.original}
+							alt={`Gallery image ${index + 1}`}
+							className="w-full h-full object-cover"
+						/>
+					</div>
 				))}
 			</div>
+			<p className="text-text">{van.description}</p>
 		</div>
 	);
 }
