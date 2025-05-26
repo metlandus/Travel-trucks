@@ -1,4 +1,3 @@
-import React from "react";
 import background from "../assets/Homepage Img 2.jpg";
 import { Link } from "react-router-dom";
 

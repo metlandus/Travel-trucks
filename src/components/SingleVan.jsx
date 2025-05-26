@@ -2,6 +2,7 @@ import svg from "../assets/icomoon/symbol-defs.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { toggleFavorite } from "../redux/vansSlice";
 import VanFeatures from "./VanFeatures";
+import { Link } from "react-router-dom";
 
 const SingleVan = ({
 	id,
@@ -87,9 +88,12 @@ const SingleVan = ({
 					<div id="features">
 						<VanFeatures features={features} />
 					</div>
-					<button className=" absolute left-0 bottom-0 bg-button hover:bg-button-hover rounded-full text-white font-medium px-10 py-4 cursor-pointer">
+					<Link
+						to={`/van/${id}`}
+						className=" absolute left-0 bottom-0 bg-button hover:bg-button-hover rounded-full text-white font-medium px-10 py-4 cursor-pointer"
+					>
 						Show more
-					</button>
+					</Link>
 				</div>
 			</div>
 		</div>
