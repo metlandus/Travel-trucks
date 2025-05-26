@@ -29,10 +29,13 @@ const SingleVan = ({
 				<div id="vanPhoto" className="flex-1">
 					<img
 						src={img}
-						className="rounded-lg aspect-[1.1] object-cover"
+						className="rounded-lg aspect-[1.123] object-cover"
 					/>
 				</div>
-				<div id="vanInfo" className="flex flex-col flex-2 gap-6">
+				<div
+					id="vanInfo"
+					className="flex flex-col flex-2 gap-6 relative"
+				>
 					<div className="flex flex-col gap-2">
 						<div
 							id="header"
@@ -84,6 +87,9 @@ const SingleVan = ({
 					<div id="features">
 						<VanFeatures features={features} />
 					</div>
+					<button className=" absolute left-0 bottom-0 bg-button hover:bg-button-hover rounded-full text-white font-medium px-10 py-4 cursor-pointer">
+						Show more
+					</button>
 				</div>
 			</div>
 		</div>

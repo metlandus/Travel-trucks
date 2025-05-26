@@ -32,33 +32,25 @@ const Equipment = () => {
 					<p className="font-medium text-main">TV</p>
 				</div>
 				<div className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]">
-					<svg width={32} height={32} className="stroke-0">
+					<svg width={32} height={32}>
 						<use href={`${svg}#icon-radio`} />
 					</svg>
 					<p className="font-medium text-main">Radio</p>
 				</div>
 				<div className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]">
 					<svg width={32} height={32}>
-						<use href={`${svg}#icon-regrigerator`} />
+						<use href={`${svg}#icon-refrigerator`} />
 					</svg>
 					<p className="font-medium text-main">Refrigerator</p>
 				</div>
 				<div className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]">
-					<svg
-						width={32}
-						height={32}
-						className="text-black fill-none"
-					>
+					<svg width={32} height={32} className="text-black">
 						<use href={`${svg}#icon-gas`} />
 					</svg>
 					<p className="font-medium text-main">Gas</p>
 				</div>
 				<div className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]">
-					<svg
-						width={32}
-						height={32}
-						className="text-black fill-none"
-					>
+					<svg width={32} height={32} className="text-black">
 						<use href={`${svg}#icon-water`} />
 					</svg>
 					<p className="font-medium text-main">Water</p>
@@ -70,11 +62,7 @@ const Equipment = () => {
 					<p className="font-medium text-main">engine</p>
 				</div>
 				<div className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]">
-					<svg
-						width={32}
-						height={32}
-						className="text-black fill-none"
-					>
+					<svg width={32} height={32} className="text-black">
 						<use href={`${svg}#icon-microwave`} />
 					</svg>
 					<p className="font-medium text-main">Microwave</p>
