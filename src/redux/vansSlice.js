@@ -12,16 +12,21 @@ const vansSlice = createSlice({
 	name: "vans",
 	initialState: {
 		all: [],
-		filters: {
-			type: "all",
-		},
+		filters: [],
 		favorites: [],
 		status: "idle",
 		error: null,
 	},
 	reducers: {
 		setFilter(state, action) {
-			state.filters.type = action.payload;
+			const feature = action.payload;
+			if (state.filters.includes(feature)) {
+				// Remove the feature if it's already in the filters
+				state.filters = state.filters.filter((f) => f !== feature);
+			} else {
+				// Add the feature if it's not in the filters
+				state.filters.push(feature);
+			}
 		},
 		toggleFavorite(state, action) {
 			const id = action.payload;

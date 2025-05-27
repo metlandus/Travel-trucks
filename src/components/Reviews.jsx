@@ -4,9 +4,8 @@ import Rating from "react-rating";
 const Reviews = ({ reviews }) => {
 	return (
 		<div className="flex gap-11 flex-col">
-			{console.log(reviews)}
-			{reviews.map((review) => (
-				<div className="flex flex-col gap-4">
+			{reviews.map((review, index) => (
+				<div key={index} className="flex flex-col gap-4">
 					<div className="flex gap-4">
 						<div className="flex justify-center items-center rounded-full w-[60px] h-[60px] text-2xl bg-badges text-button font-semibold">
 							{review.reviewer_name[0]}

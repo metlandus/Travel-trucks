@@ -19,8 +19,6 @@ const SingleVan = ({
 	const favs = useSelector((state) => state.vans.favorites);
 
 	function handleFavorite() {
-		console.log("Van is added to favorites");
-		console.log(favs);
 		dispatch(toggleFavorite(id));
 	}
 

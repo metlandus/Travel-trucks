@@ -15,8 +15,8 @@ function VanDetailsPage() {
 	const vans = useSelector((state) => state.vans.all);
 	const van = vans.find((van) => van.id === id);
 
-    const [loading, setLoading] = useState(!van);
-    
+	const [loading, setLoading] = useState(!van);
+
 	useEffect(() => {
 		if (!van) {
 			dispatch(fetchVans()).then(() => setLoading(false));
@@ -48,8 +48,6 @@ function VanDetailsPage() {
 		tank: van.tank,
 		consumption: van.consumption,
 	};
-
-	console.log(van);
 
 	return (
 		<div className="flex flex-col px-16 pt-12 gap-7 mb-50">

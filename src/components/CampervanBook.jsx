@@ -1,4 +1,5 @@
 import React from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 const CampervanBook = () => {
 	return (
@@ -32,9 +33,18 @@ const CampervanBook = () => {
 					className="bg-inputs p-4.5 rounded-xl"
 				></textarea>
 			</div>
-			<button className="self-center bg-button hover:bg-button-hover text-white rounded-full px-15 py-4 ">
+			<button
+				onClick={() =>
+					toast.success(
+						"Your reservation is added to calendar (but not really since we have no backend XD)",
+						{ duration: 3500 }
+					)
+				}
+				className="self-center bg-button hover:bg-button-hover cursor-pointer text-white rounded-full px-15 py-4 "
+			>
 				Send
 			</button>
+			<Toaster />
 		</div>
 	);
 };

@@ -47,7 +47,7 @@ const FeaturesBox = ({ features, details }) => {
 					<div className="flex justify-between">
 						<p className="text-main font-medium">Consumption</p>
 						<p className="text-main font-medium">
-							{details.consumption.replace("/", " / ")}
+							{details.consumption.replace("/", " / ")    }
 						</p>
 					</div>
 				</div>
