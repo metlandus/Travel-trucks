@@ -15,14 +15,17 @@ function VanDetailsPage() {
 	const vans = useSelector((state) => state.vans.all);
 	const van = vans.find((van) => van.id === id);
 
+    const [loading, setLoading] = useState(!van);
+    
 	useEffect(() => {
-		if (!vans.length) {
-			dispatch(fetchVans());
+		if (!van) {
+			dispatch(fetchVans()).then(() => setLoading(false));
 		}
-	}, [dispatch, vans]);
+	}, [dispatch, van]);
 
-	console.log(van);
-
+	if (loading) {
+		return <p>Loading...</p>;
+	}
 	const features = {
 		transmission: van.transmission,
 		engine: van.engine,
