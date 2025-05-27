@@ -13,33 +13,41 @@ const FeaturesBox = ({ features, details }) => {
 					<div className="flex justify-between">
 						<p className="text-main font-medium">Form</p>
 						<p className="text-main font-medium first-letter:capitalize">
-							{details.form}
+							{details.form === "panelTruck"
+								? "Panel Truck"
+								: details.form === "fullyIntegrated"
+									? "Fully Integrated"
+									: details.form}
 						</p>
 					</div>
 					<div className="flex justify-between">
 						<p className="text-main font-medium">Length</p>
 						<p className="text-main font-medium">
-							{details.length}
+							{details.length.replace("m", " m")}
 						</p>
 					</div>
 					<div className="flex justify-between">
 						<p className="text-main font-medium">Width</p>
-						<p className="text-main font-medium">{details.width}</p>
+						<p className="text-main font-medium">
+							{details.width.replace("m", " m")}
+						</p>
 					</div>
 					<div className="flex justify-between">
 						<p className="text-main font-medium">Height</p>
 						<p className="text-main font-medium">
-							{details.height}
+							{details.height.replace("m", " m")}
 						</p>
 					</div>
 					<div className="flex justify-between">
 						<p className="text-main font-medium">Tank</p>
-						<p className="text-main font-medium">{details.tank}</p>
+						<p className="text-main font-medium">
+							{details.tank.replace("l", " l")}
+						</p>
 					</div>
 					<div className="flex justify-between">
 						<p className="text-main font-medium">Consumption</p>
 						<p className="text-main font-medium">
-							{details.consumption}
+							{details.consumption.replace("/", " / ")}
 						</p>
 					</div>
 				</div>

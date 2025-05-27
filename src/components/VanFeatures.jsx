@@ -7,7 +7,7 @@ const VanFeatures = ({ features }) => {
 				<>
 					{typeof feature[1] === "boolean" ? (
 						feature[1] ? (
-							<div className="flex items-center bg-badges rounded-full px-4.5 py-4 gap-2 font-medium text-main">
+							<div className="flex items-center bg-badges mix-blend-multiply  rounded-full px-4.5 py-4 gap-2 font-medium text-main">
 								<svg width={20} height={20}>
 									<use href={`${svg}#icon-${feature[0]}`} />
 								</svg>
@@ -19,7 +19,7 @@ const VanFeatures = ({ features }) => {
 							""
 						)
 					) : (
-						<div className="flex items-center bg-badges rounded-full px-4.5 py-4 gap-2 font-medium text-main">
+						<div className="flex items-center bg-badges mix-blend-multiply rounded-full px-4.5 py-4 gap-2 font-medium text-main">
 							<svg width={20} height={20}>
 								<use href={`${svg}#icon-${feature[0]}`} />
 							</svg>
