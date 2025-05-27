@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { setFilter } from "../redux/vansSlice";
 const Equipment = () => {
 	const dispatch = useDispatch();
-
 	const filters = useSelector((state) => state.vans.filters);
-	console.log("🚀 ~ Equipment ~ filters:", filters);
+
 	const features = [
 		"AC",
 		"bathroom",
@@ -19,7 +18,7 @@ const Equipment = () => {
 	];
 
 	function handleFilter(feature) {
-		dispatch(setFilter(feature)); // Dispatch the selected feature
+		dispatch(setFilter(feature));
 	}
 
 	return (
@@ -27,12 +26,12 @@ const Equipment = () => {
 			<h2 className="text-main font-semibold text-xl border-b-1 border-b-gray-light pb-6">
 				Vehicle Equipment
 			</h2>
-			<div className="flex flex-wrap gap-2">
+			<div className="flex flex-wrap gap-2 ">
 				{features.map((feature, index) => (
 					<div key={index}>
 						<button
 							onClick={() => handleFilter(feature)}
-							className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]"
+							className={`flex flex-col px-10 py-4 gap-2 border-1  items-center hover:border-button rounded-xl max-w-[114px] ${filters.includes(feature) ? "border-button" : "border-gray-light"}`}
 						>
 							<svg width={32} height={32}>
 								<use href={`${svg}#icon-${feature}`} />
