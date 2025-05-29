@@ -18,7 +18,8 @@ function Header() {
 				<Link
 					to="/Homepage"
 					className={`${
-						location.pathname === "/Homepage"
+						location.pathname === "/Homepage" ||
+						location.pathname === "/"
 							? "text-button-hover"
 							: ""
 					}`}

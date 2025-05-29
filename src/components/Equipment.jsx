@@ -1,6 +1,8 @@
 import svg from "../assets/icomoon/symbol-defs.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { setFilter } from "../redux/vansSlice";
+
+
 const Equipment = () => {
 	const dispatch = useDispatch();
 	const filters = useSelector((state) => state.vans.filters);
@@ -41,74 +43,6 @@ const Equipment = () => {
 					</div>
 				))}
 			</div>
-			{/* <div className="flex flex-wrap gap-2">
-				<button className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]">
-					<svg width={32} height={32}>
-						<use href={`${svg}#icon-AC`} />
-					</svg>
-					<p className="font-medium text-main">AC</p>
-				</button>
-				<button className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]">
-					<svg width={32} height={32}>
-						<use href={`${svg}#icon-transmission`} />
-					</svg>
-					<p className="font-medium text-main">Automatic</p>
-				</button>
-				<button className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]">
-					<svg width={32} height={32}>
-						<use href={`${svg}#icon-kitchen`} />
-					</svg>
-					<p className="font-medium text-main">Kitchen</p>
-				</button>
-				<button className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]">
-					<svg width={32} height={32}>
-						<use href={`${svg}#icon-TV`} />
-					</svg>
-					<p className="font-medium text-main">TV</p>
-				</button>
-				<button className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]">
-					<svg width={32} height={32}>
-						<use href={`${svg}#icon-radio`} />
-					</svg>
-					<p className="font-medium text-main">Radio</p>
-				</button>
-				<button className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]">
-					<svg width={32} height={32}>
-						<use href={`${svg}#icon-refrigerator`} />
-					</svg>
-					<p className="font-medium text-main">Refrigerator</p>
-				</button>
-				<button className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]">
-					<svg width={32} height={32} className="text-black">
-						<use href={`${svg}#icon-gas`} />
-					</svg>
-					<p className="font-medium text-main">Gas</p>
-				</button>
-				<button className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]">
-					<svg width={32} height={32} className="text-black">
-						<use href={`${svg}#icon-water`} />
-					</svg>
-					<p className="font-medium text-main">Water</p>
-				</button>
-				<button className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]">
-					<svg width={32} height={32}>
-						<use href={`${svg}#icon-engine`} />
-					</svg>
-					<p className="font-medium text-main">engine</p>
-				</button>
-				<button className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]">
-					<svg width={32} height={32} className="text-black">
-						<use href={`${svg}#icon-microwave`} />
-					</svg>
-					<p className="font-medium text-main">Microwave</p>
-				</button>
-				<button className="flex flex-col px-10 py-4 gap-2 border-1 border-gray-light items-center hover:border-button rounded-xl max-w-[114px]">
-					<svg width={32} height={32} className="text-black">
-						<use href={`${svg}#icon-bathroom`} />
-					</svg>
-					<p className="font-medium text-main">Bathroom</p>
-				</button>
-			</div> */}
 		</div>
 	);
 };

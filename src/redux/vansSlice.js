@@ -14,6 +14,7 @@ const vansSlice = createSlice({
 		all: [],
 		filters: [],
 		favorites: [],
+		searchTriggered: false,
 		status: "idle",
 		error: null,
 	},
@@ -21,10 +22,9 @@ const vansSlice = createSlice({
 		setFilter(state, action) {
 			const feature = action.payload;
 			if (state.filters.includes(feature)) {
-				// Remove the feature if it's already in the filters
-				state.filters = state.filters.filter((f) => f !== feature);
+                state.filters = state.filters.filter((f) => f !== feature);
+                
 			} else {
-				// Add the feature if it's not in the filters
 				state.filters.push(feature);
 			}
 		},
@@ -36,6 +36,9 @@ const vansSlice = createSlice({
 			} else {
 				state.favorites.splice(index, 1);
 			}
+		},
+		triggerSearch(state) {
+			state.searchTriggered = true;
 		},
 	},
 	extraReducers: (builder) => {
@@ -54,5 +57,5 @@ const vansSlice = createSlice({
 	},
 });
 
-export const { setFilter, toggleFavorite } = vansSlice.actions;
+export const { setFilter, toggleFavorite, triggerSearch } = vansSlice.actions;
 export default vansSlice.reducer;

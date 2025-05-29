@@ -1,20 +1,30 @@
-import React, { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import SingleVan from "./SingleVan";
 import { fetchVans } from "../redux/vansSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 const Vans = () => {
 	const vans = useSelector((state) => state.vans.all);
+	const filters = useSelector((state) => state.vans.filters);
+	const searchTriggered = useSelector((state) => state.vans.searchTriggered);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(fetchVans());
 	}, [dispatch]);
 
+	const filteredVans = useMemo(() => {
+		if (!searchTriggered || filters.length === 0) {
+			return vans;
+		}
+
+		return vans.filter((van) => filters.every((filter) => van[filter]));
+	}, [vans, filters, searchTriggered]);
+
 	return (
 		<div>
 			<ul>
-				{vans.map((van) => (
+				{filteredVans.map((van) => (
 					<li key={van.id} className="mb-8">
 						<SingleVan
 							id={van.id}
