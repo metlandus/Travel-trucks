@@ -6,7 +6,7 @@ import { useSelector, useDispatch } from "react-redux";
 const Vans = () => {
 	const vans = useSelector((state) => state.vans.all);
 	const filters = useSelector((state) => state.vans.filters);
-	const searchTriggered = useSelector((state) => state.vans.searchTriggered);
+	const searchTriggered = useSelector((state) => state.vans.searchTriggered); // Get searchTriggered flag
 	const dispatch = useDispatch();
 
 	useEffect(() => {
@@ -15,11 +15,13 @@ const Vans = () => {
 
 	const filteredVans = useMemo(() => {
 		if (!searchTriggered || filters.length === 0) {
-			return vans;
+			return vans; // Return all vans if search is not triggered or no filters are selected
 		}
 
-		return vans.filter((van) => filters.every((filter) => van[filter]));
-	}, [vans, filters, searchTriggered]);
+		return vans.filter(
+			(van) => filters.every((filter) => van[filter]) // Check if the van has the selected feature
+		);
+	}, [vans, filters, searchTriggered]); // Recalculate only when vans, filters, or searchTriggered change
 
 	return (
 		<div>
