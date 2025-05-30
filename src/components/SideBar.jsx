@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { triggerSearch, resetSearch } from "../redux/vansSlice";
+import { triggerSearch } from "../redux/vansSlice";
 import Location from "./Location";
 import Equipment from "./Equipment";
 import VehicleType from "./VehicleType";
@@ -9,8 +9,8 @@ function SideBar() {
 
 	function handleSearch() {
 		dispatch(triggerSearch());
-		dispatch(resetSearch());
 	}
+
 	return (
 		<div className="px-16">
 			<Location />
@@ -18,7 +18,6 @@ function SideBar() {
 				<p className="text-text font-medium">Filters</p>
 				<Equipment />
 				<VehicleType />
-
 				<button
 					onClick={handleSearch}
 					className="bg-button hover:bg-button-hover text-white rounded-full px-15 py-4 self-start"

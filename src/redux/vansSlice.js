@@ -15,6 +15,7 @@ const vansSlice = createSlice({
 		filters: [],
 		favorites: [],
 		searchTriggered: false,
+		filteredVans: [],
 		status: "idle",
 		error: null,
 	},
@@ -23,7 +24,6 @@ const vansSlice = createSlice({
 			const feature = action.payload;
 			if (state.filters.includes(feature)) {
 				state.filters = state.filters.filter((f) => f !== feature);
-				state.searchTriggered = false;
 			} else {
 				state.filters.push(feature);
 			}
@@ -39,6 +39,9 @@ const vansSlice = createSlice({
 		},
 		triggerSearch(state) {
 			state.searchTriggered = true;
+			state.filteredVans = state.all.filter((van) =>
+				state.filters.every((filter) => van[filter])
+			);
 		},
 		resetSearch(state) {
 			state.searchTriggered = false;

@@ -1,32 +1,25 @@
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import SingleVan from "./SingleVan";
-import { fetchVans } from "../redux/vansSlice";
+import { fetchVans, triggerSearch } from "../redux/vansSlice";
 import { useSelector, useDispatch } from "react-redux";
 
 const Vans = () => {
 	const vans = useSelector((state) => state.vans.all);
-	const filters = useSelector((state) => state.vans.filters);
-	const searchTriggered = useSelector((state) => state.vans.searchTriggered); // Get searchTriggered flag
+	const filteredVans = useSelector((state) => state.vans.filteredVans);
 	const dispatch = useDispatch();
 
 	useEffect(() => {
 		dispatch(fetchVans());
+		dispatch(triggerSearch());
 	}, [dispatch]);
 
-	const filteredVans = useMemo(() => {
-		if (!searchTriggered || filters.length === 0) {
-			return vans; // Return all vans if search is not triggered or no filters are selected
-		}
 
-		return vans.filter(
-			(van) => filters.every((filter) => van[filter]) // Check if the van has the selected feature
-		);
-	}, [vans, filters, searchTriggered]); // Recalculate only when vans, filters, or searchTriggered change
-
+    const vansToDisplay = filteredVans.length > 0 ? filteredVans : vans;
+    
 	return (
 		<div>
 			<ul>
-				{filteredVans.map((van) => (
+				{vansToDisplay.map((van) => (
 					<li key={van.id} className="mb-8">
 						<SingleVan
 							id={van.id}
