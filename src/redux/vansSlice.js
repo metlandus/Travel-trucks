@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+// Fetch vans from API
 export const fetchVans = createAsyncThunk("vans/fetchVans", async () => {
 	const response = await axios.get(
 		"https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers"
@@ -8,12 +9,23 @@ export const fetchVans = createAsyncThunk("vans/fetchVans", async () => {
 	return response.data.items;
 });
 
+// Helper function to load favorites from local storage
+const loadFavoritesFromLocalStorage = () => {
+	const favorites = localStorage.getItem("favorites");
+	return favorites ? JSON.parse(favorites) : [];
+};
+
+// Helper function to save favorites to local storage
+const saveFavoritesToLocalStorage = (favorites) => {
+	localStorage.setItem("favorites", JSON.stringify(favorites));
+};
+
 const vansSlice = createSlice({
 	name: "vans",
 	initialState: {
 		all: [],
 		filters: [],
-		favorites: [],
+		favorites: loadFavoritesFromLocalStorage(), // Load favorites from local storage
 		searchTriggered: false,
 		filteredVans: [],
 		status: "idle",
@@ -36,12 +48,17 @@ const vansSlice = createSlice({
 			} else {
 				state.favorites.splice(index, 1);
 			}
+			saveFavoritesToLocalStorage(state.favorites); // Save updated favorites to local storage
 		},
 		triggerSearch(state) {
 			state.searchTriggered = true;
 			state.filteredVans = state.all.filter((van) => {
 				return state.filters.every((filter) => {
-					return van[filter] || van.form === filter;
+					return (
+						van[filter] ||
+						van.form === filter ||
+						van.location === filter
+					);
 				});
 			});
 		},

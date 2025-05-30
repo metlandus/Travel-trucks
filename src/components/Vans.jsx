@@ -3,23 +3,31 @@ import SingleVan from "./SingleVan";
 import { fetchVans, triggerSearch } from "../redux/vansSlice";
 import { useSelector, useDispatch } from "react-redux";
 
-const Vans = () => {
+const Vans = ({ page, setPage }) => {
 	const vans = useSelector((state) => state.vans.all);
 	const filteredVans = useSelector((state) => state.vans.filteredVans);
 	const dispatch = useDispatch();
+
+	// Local state for pagination
+	const itemsPerPage = 5; // Number of items per page
 
 	useEffect(() => {
 		dispatch(fetchVans());
 		dispatch(triggerSearch());
 	}, [dispatch]);
 
+	const vansToDisplay = filteredVans.length > 0 ? filteredVans : vans;
+	const paginatedVans = vansToDisplay.slice(0, page * itemsPerPage);
 
-    const vansToDisplay = filteredVans.length > 0 ? filteredVans : vans;
-    
+	const handleLoadMore = () => {
+		console.log("🚀 ~ Vans ~ page:", page);
+		setPage((prevPage) => prevPage + 1);
+	};
+
 	return (
-		<div>
+		<div className="flex flex-col">
 			<ul>
-				{vansToDisplay.map((van) => (
+				{paginatedVans.map((van) => (
 					<li key={van.id} className="mb-8">
 						<SingleVan
 							id={van.id}
@@ -47,6 +55,15 @@ const Vans = () => {
 					</li>
 				))}
 			</ul>
+			{/* Show "Load More" button only if there are more items to load */}
+			{paginatedVans.length < vansToDisplay.length && (
+				<button
+					onClick={handleLoadMore}
+					className="cursor-pointer self-center border-1 border-gray-light text-main rounded-full px-8 py-4 mt-2"
+				>
+					Load More
+				</button>
+			)}
 		</div>
 	);
 };

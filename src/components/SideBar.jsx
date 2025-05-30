@@ -4,11 +4,12 @@ import Location from "./Location";
 import Equipment from "./Equipment";
 import VehicleType from "./VehicleType";
 
-function SideBar() {
+function SideBar({ setPage }) {
 	const dispatch = useDispatch();
 
 	function handleSearch() {
 		dispatch(triggerSearch());
+		setPage(1);
 	}
 
 	return (
