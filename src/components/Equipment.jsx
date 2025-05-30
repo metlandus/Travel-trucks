@@ -2,7 +2,6 @@ import svg from "../assets/icomoon/symbol-defs.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { setFilter } from "../redux/vansSlice";
 
-
 const Equipment = () => {
 	const dispatch = useDispatch();
 	const filters = useSelector((state) => state.vans.filters);

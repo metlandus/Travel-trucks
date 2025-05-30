@@ -39,9 +39,11 @@ const vansSlice = createSlice({
 		},
 		triggerSearch(state) {
 			state.searchTriggered = true;
-			state.filteredVans = state.all.filter((van) =>
-				state.filters.every((filter) => van[filter])
-			);
+			state.filteredVans = state.all.filter((van) => {
+				return state.filters.every((filter) => {
+					return van[filter] || van.form === filter;
+				});
+			});
 		},
 		resetSearch(state) {
 			state.searchTriggered = false;
