@@ -1,18 +1,26 @@
 import svg from "../assets/icomoon/symbol-defs.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { setFilter } from "../redux/vansSlice";
+import { useState } from "react";
 
 function Location() {
 	const dispatch = useDispatch();
-	const locations = ["Any"];
+	const [selectedLocation, setSelectedLocation] = useState("");
+	const locations = [];
 	const loc = useSelector((state) => state.vans.all);
-	loc.map((van) =>
-		locations.includes(van.location) ? "" : locations.push(van.location)
-	);
 
+	// Populate the locations array with unique values
+	loc.forEach((van) => {
+		if (!locations.includes(van.location)) {
+			locations.push(van.location);
+		}
+	});
+
+	// Handle location selection
 	function handleChange(event) {
-		const selectedLocation = event.target.value;
-		dispatch(setFilter(selectedLocation));
+		const location = event.target.value;
+		setSelectedLocation(location);
+		dispatch(setFilter(location));
 	}
 
 	return (
@@ -24,20 +32,26 @@ function Location() {
 				<svg width={20} height={20} className="fill-gray">
 					<use href={`${svg}#icon-map`} />
 				</svg>
-				<input
+				<select
 					name="location"
-					placeholder="City"
-					list="location"
-					className="outline-none w-full"
+					className={`outline-none w-full bg-transparent ${
+						selectedLocation === "" ? "text-gray" : "text-main"
+					}`}
 					onChange={handleChange}
-				/>
-				<datalist id="location">
+				>
+					<option value="" selected>
+						City
+					</option>
 					{locations.map((location, index) => (
-						<option key={index} value={location}>
+						<option
+							className="text-main"
+							key={index}
+							value={location}
+						>
 							{location}
 						</option>
 					))}
-				</datalist>
+				</select>
 			</div>
 		</div>
 	);
