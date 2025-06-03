@@ -1,11 +1,14 @@
 import { useEffect } from "react";
 import SingleVan from "./SingleVan";
-import { fetchVans, triggerSearch } from "../redux/vansSlice";
+import { fetchVans } from "../redux/vansSlice";
 import { useSelector, useDispatch } from "react-redux";
+import toast, { Toaster } from "react-hot-toast";
 
 const Vans = ({ page, setPage }) => {
 	const vans = useSelector((state) => state.vans.all);
 	const filteredVans = useSelector((state) => state.vans.filteredVans);
+	const filters = useSelector((state) => state.vans.filters);
+	const error = useSelector((state) => state.vans.error); // Redux error state
 	const dispatch = useDispatch();
 
 	// Local state for pagination
@@ -13,19 +16,25 @@ const Vans = ({ page, setPage }) => {
 
 	useEffect(() => {
 		dispatch(fetchVans());
-		dispatch(triggerSearch());
 	}, [dispatch]);
+
+	useEffect(() => {
+		// Show toast if there is an error
+		if (error && filters.length > 0) {
+			toast.error(error, { duration: 3000 });
+		}
+	}, [error, filters]);
 
 	const vansToDisplay = filteredVans.length > 0 ? filteredVans : vans;
 	const paginatedVans = vansToDisplay.slice(0, page * itemsPerPage);
 
 	const handleLoadMore = () => {
-		console.log("🚀 ~ Vans ~ page:", page);
 		setPage((prevPage) => prevPage + 1);
 	};
 
 	return (
 		<div className="flex flex-col">
+			<Toaster /> {/* Toast container */}
 			<ul>
 				{paginatedVans.map((van) => (
 					<li key={van.id} className="mb-8">

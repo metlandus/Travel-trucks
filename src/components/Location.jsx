@@ -5,7 +5,7 @@ import { useState } from "react";
 
 function Location() {
 	const dispatch = useDispatch();
-	const [selectedLocation, setSelectedLocation] = useState("");
+	const [selectedLocation, setSelectedLocation] = useState();
 	const locations = [];
 	const loc = useSelector((state) => state.vans.all);
 
@@ -18,6 +18,7 @@ function Location() {
 
 	// Handle location selection
 	function handleChange(event) {
+		setSelectedLocation();
 		const location = event.target.value;
 		setSelectedLocation(location);
 		dispatch(setFilter(location));
@@ -33,13 +34,16 @@ function Location() {
 					<use href={`${svg}#icon-map`} />
 				</svg>
 				<select
-					name="location"
+                    name="location"
+                    aria-placeholder="City"
 					className={`outline-none w-full bg-transparent ${
-						selectedLocation === "City" ? "text-gray" : "text-main"
+						selectedLocation === "" ? "text-gray" : "text-main"
 					}`}
 					onChange={handleChange}
 				>
-					<option value="City">City</option>
+					<option value="" className="text-gray">
+						City
+					</option>
 					{locations.map((location, index) => (
 						<option
 							className="text-main"

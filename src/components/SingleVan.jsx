@@ -33,7 +33,7 @@ const SingleVan = ({
 				</div>
 				<div
 					id="vanInfo"
-					className="flex flex-col flex-2 gap-6 relative"
+					className="flex flex-col flex-2 justify-between gap-6 relative"
 				>
 					<div className="flex flex-col gap-2">
 						<div

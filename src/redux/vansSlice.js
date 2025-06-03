@@ -36,17 +36,19 @@ const vansSlice = createSlice({
 			const feature = action.payload;
 			const vehicleTypes = ["panelTruck", "fullyIntegrated", "alcove"];
 
+			// Clear error when filters are updated
+			state.error = null;
+
 			if (vehicleTypes.includes(feature)) {
-				// If the feature is a vehicle type and already selected, remove it
 				if (state.filters.includes(feature)) {
 					state.filters = state.filters.filter((f) => f !== feature);
 				} else {
-					// Otherwise, remove other vehicle types and add the selected one
-					state.filters = state.filters.filter((f) => !vehicleTypes.includes(f));
+					state.filters = state.filters.filter(
+						(f) => !vehicleTypes.includes(f)
+					);
 					state.filters.push(feature);
 				}
 			} else {
-				// For non-vehicle-type filters, toggle them
 				if (state.filters.includes(feature)) {
 					state.filters = state.filters.filter((f) => f !== feature);
 				} else {
@@ -75,6 +77,13 @@ const vansSlice = createSlice({
 					);
 				});
 			});
+
+			// Set error if no vans match the filters
+			if (state.filteredVans.length === 0 && state.filters.length > 0) {
+				state.error = "No matching vans for your filter.";
+			} else {
+				state.error = null; // Clear error if items are found
+			}
 		},
 		resetSearch(state) {
 			state.searchTriggered = false;

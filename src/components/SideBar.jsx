@@ -21,7 +21,7 @@ function SideBar({ setPage }) {
 				<VehicleType />
 				<button
 					onClick={handleSearch}
-					className="bg-button hover:bg-button-hover text-white rounded-full px-15 py-4 self-start"
+					className="bg-button hover:bg-button-hover text-white rounded-full px-15 py-4 self-start cursor-pointer"
 				>
 					Search
 				</button>
