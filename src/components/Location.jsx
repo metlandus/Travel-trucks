@@ -35,13 +35,11 @@ function Location() {
 				<select
 					name="location"
 					className={`outline-none w-full bg-transparent ${
-						selectedLocation === "" ? "text-gray" : "text-main"
+						selectedLocation === "City" ? "text-gray" : "text-main"
 					}`}
 					onChange={handleChange}
 				>
-					<option value="" selected>
-						City
-					</option>
+					<option value="City">City</option>
 					{locations.map((location, index) => (
 						<option
 							className="text-main"

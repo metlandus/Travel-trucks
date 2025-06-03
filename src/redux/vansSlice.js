@@ -25,7 +25,7 @@ const vansSlice = createSlice({
 	initialState: {
 		all: [],
 		filters: [],
-		favorites: loadFavoritesFromLocalStorage(), // Load favorites from local storage
+		favorites: loadFavoritesFromLocalStorage(),
 		searchTriggered: false,
 		filteredVans: [],
 		status: "idle",
@@ -34,10 +34,24 @@ const vansSlice = createSlice({
 	reducers: {
 		setFilter(state, action) {
 			const feature = action.payload;
-			if (state.filters.includes(feature)) {
-				state.filters = state.filters.filter((f) => f !== feature);
+			const vehicleTypes = ["panelTruck", "fullyIntegrated", "alcove"];
+
+			if (vehicleTypes.includes(feature)) {
+				// If the feature is a vehicle type and already selected, remove it
+				if (state.filters.includes(feature)) {
+					state.filters = state.filters.filter((f) => f !== feature);
+				} else {
+					// Otherwise, remove other vehicle types and add the selected one
+					state.filters = state.filters.filter((f) => !vehicleTypes.includes(f));
+					state.filters.push(feature);
+				}
 			} else {
-				state.filters.push(feature);
+				// For non-vehicle-type filters, toggle them
+				if (state.filters.includes(feature)) {
+					state.filters = state.filters.filter((f) => f !== feature);
+				} else {
+					state.filters.push(feature);
+				}
 			}
 		},
 		toggleFavorite(state, action) {
@@ -48,7 +62,7 @@ const vansSlice = createSlice({
 			} else {
 				state.favorites.splice(index, 1);
 			}
-			saveFavoritesToLocalStorage(state.favorites); // Save updated favorites to local storage
+			saveFavoritesToLocalStorage(state.favorites);
 		},
 		triggerSearch(state) {
 			state.searchTriggered = true;
