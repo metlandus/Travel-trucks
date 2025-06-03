@@ -88,7 +88,7 @@ const SingleVan = ({
 					</div>
 					<Link
 						to={`/van/${id}`}
-						className=" absolute left-0 bottom-0 bg-button hover:bg-button-hover rounded-full text-white font-medium px-10 py-4 cursor-pointer"
+						className="self-baseline bg-button hover:bg-button-hover rounded-full text-white font-medium px-10 py-4 cursor-pointer"
 					>
 						Show more
 					</Link>
